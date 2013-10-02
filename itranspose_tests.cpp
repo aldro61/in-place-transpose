@@ -8,7 +8,7 @@
 //  Created by : Alexandre Drouin
 //  Date : 2013-09-30
 //
-//  Make with : g++ itranspose_with_tests.cpp -o tests -lboost_unit_test_framework-mt
+//  Make with : g++ itranspose_tests.cpp -o tests -lboost_unit_test_framework-mt
 
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE "C++ Unit Tests for in-place transposition of rectangular matrices"
@@ -50,15 +50,13 @@ void itranspose(Mat<TYPE>& A)
                 if (!visited[pos]) {
                     unsigned int curr_pos = pos;
                     
-                    TYPE val = A(row, col); // No more modulus here
+                    TYPE val = A(row, col);
                     
                     while (!visited[curr_pos]) {
                         visited[curr_pos] = true;
                         
-                        // The next line could be replaced by float multiplication by 1/m (could be precomputed),
-                        // but I don't known which is faster.
                         unsigned int A_j = curr_pos / m;
-                        unsigned int A_i = curr_pos - m * A_j; // The modulus was replaced by an integer multiplication and substraction
+                        unsigned int A_i = curr_pos - m * A_j;
                         
                         TYPE tmp = A(A_j, A_i);
                         A(A_j, A_i) = val;
