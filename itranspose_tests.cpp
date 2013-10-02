@@ -8,7 +8,7 @@
 //  Created by : Alexandre Drouin
 //  Date : 2013-09-30
 //
-//  Make with : g++ itranspose_tests.cpp -o tests -lboost_unit_test_framework-mt
+//  Make with : g++ itranspose_tests.cpp -o tests -O3 -lboost_unit_test_framework-mt
 
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE "C++ Unit Tests for in-place transposition of rectangular matrices"
